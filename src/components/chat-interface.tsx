@@ -14,22 +14,36 @@ export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState("")
   const [isStreaming, setIsStreaming] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const userHasScrolledUp = useRef(false)
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    if (userHasScrolledUp.current) return
+    const container = messagesContainerRef.current
+    if (container) {
+      container.scrollTop = container.scrollHeight
+    }
   }, [])
 
   useEffect(() => {
     scrollToBottom()
   }, [messages, scrollToBottom])
 
+  function handleScroll() {
+    const container = messagesContainerRef.current
+    if (!container) return
+    // "Near bottom" = within 40px of the bottom edge
+    const atBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 40
+    userHasScrolledUp.current = !atBottom
+  }
+
   async function sendMessage(text: string) {
     if (!text.trim() || isStreaming) return
 
     const userMessage: Message = { role: "user", content: text.trim() }
     const newMessages = [...messages, userMessage]
+    userHasScrolledUp.current = false
     setMessages(newMessages)
     setInput("")
     setIsStreaming(true)
@@ -115,10 +129,10 @@ export function ChatInterface() {
   return (
     <section id="chat" className="px-6 py-16">
       <div className="mx-auto max-w-2xl">
-        <h2 className="font-[family-name:var(--font-pixel-heading)] text-sm text-center text-neon text-glow-cyan uppercase tracking-wider">
+        <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-center text-neon text-glow-cyan uppercase tracking-wider">
           Ask the AI
         </h2>
-        <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
+        <p className="mt-3 text-center text-sm text-muted-foreground tracking-wide">
           This AI knows Patrick's background and will give you an honest assessment.
           Paste a job description, ask about gaps, or explore freely.
         </p>
@@ -127,27 +141,27 @@ export function ChatInterface() {
           {/* Header bar */}
           <div className="flex items-center justify-between border-b border-neon/10 px-4 py-2">
             <div className="flex items-center gap-2">
-              <Bot className="size-3.5 text-neon" />
-              <span className="text-[10px] uppercase tracking-widest text-neon">
+              <Bot className="size-4 text-neon" />
+              <span className="text-xs uppercase tracking-widest text-neon">
                 AI Interface
               </span>
             </div>
             {isStreaming && (
               <div className="flex items-center gap-1.5">
-                <span className="relative flex size-1.5">
+                <span className="relative flex size-2">
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-neon opacity-75"></span>
-                  <span className="relative inline-flex size-1.5 rounded-full bg-neon"></span>
+                  <span className="relative inline-flex size-2 rounded-full bg-neon"></span>
                 </span>
-                <span className="text-[10px] text-neon tracking-widest">STREAMING</span>
+                <span className="text-xs text-neon tracking-widest">STREAMING</span>
               </div>
             )}
           </div>
 
           {/* Messages */}
-          <div className="max-h-[400px] overflow-y-auto p-4 space-y-4">
+          <div ref={messagesContainerRef} onScroll={handleScroll} className="max-h-[400px] overflow-y-auto p-4 space-y-4">
             {messages.length === 0 && (
               <div className="py-6">
-                <p className="text-center text-[11px] text-muted-foreground mb-4 uppercase tracking-wider">
+                <p className="text-center text-sm text-muted-foreground mb-4 uppercase tracking-wider">
                   Select a prompt to begin:
                 </p>
                 <SamplePrompts onSelect={sendMessage} />
@@ -163,13 +177,13 @@ export function ChatInterface() {
                 )}
               >
                 {msg.role === "assistant" && (
-                  <div className="flex size-6 shrink-0 items-center justify-center rounded border border-neon/30 bg-neon/10">
-                    <Bot className="size-3 text-neon" />
+                  <div className="flex size-7 shrink-0 items-center justify-center rounded border border-neon/30 bg-neon/10">
+                    <Bot className="size-3.5 text-neon" />
                   </div>
                 )}
                 <div
                   className={cn(
-                    "max-w-[85%] rounded-lg px-3 py-2 text-xs leading-relaxed",
+                    "max-w-[85%] rounded-lg px-3 py-2 text-sm leading-relaxed",
                     msg.role === "user"
                       ? "bg-neon/10 border border-neon/20 text-foreground"
                       : "bg-secondary/50 border border-border text-foreground/90"
@@ -179,17 +193,16 @@ export function ChatInterface() {
                   {msg.role === "assistant" &&
                     msg.content === "" &&
                     isStreaming && (
-                      <Loader2 className="size-3 animate-spin text-neon" />
+                      <Loader2 className="size-4 animate-spin text-neon" />
                     )}
                 </div>
                 {msg.role === "user" && (
-                  <div className="flex size-6 shrink-0 items-center justify-center rounded border border-neon-amber/30 bg-neon-amber/10">
-                    <User className="size-3 text-neon-amber" />
+                  <div className="flex size-7 shrink-0 items-center justify-center rounded border border-neon-amber/30 bg-neon-amber/10">
+                    <User className="size-3.5 text-neon-amber" />
                   </div>
                 )}
               </div>
             ))}
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}
@@ -203,17 +216,17 @@ export function ChatInterface() {
                 placeholder="> Enter query..."
                 rows={1}
                 disabled={isStreaming}
-                className="flex-1 min-h-[36px] max-h-[120px] resize-none rounded border border-neon/15 bg-transparent px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 disabled:opacity-50"
+                className="flex-1 min-h-[40px] max-h-[120px] resize-none rounded border border-neon/15 bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 disabled:opacity-50"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isStreaming}
-                className="flex size-9 items-center justify-center rounded border border-neon/20 bg-neon/10 text-neon hover:bg-neon/20 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                className="flex size-10 items-center justify-center rounded border border-neon/20 bg-neon/10 text-neon hover:bg-neon/20 transition-colors disabled:opacity-30 disabled:pointer-events-none"
               >
                 {isStreaming ? (
-                  <Loader2 className="size-3.5 animate-spin" />
+                  <Loader2 className="size-4 animate-spin" />
                 ) : (
-                  <Send className="size-3.5" />
+                  <Send className="size-4" />
                 )}
               </button>
             </form>

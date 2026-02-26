@@ -36,9 +36,9 @@ export function SamplePrompts({ onSelect }: SamplePromptsProps) {
         <button
           key={prompt.text}
           onClick={() => onSelect(prompt.text)}
-          className="inline-flex items-center gap-2 rounded border border-neon/20 bg-neon/5 px-3 py-2 text-[11px] text-neon/80 hover:text-neon hover:border-neon/40 hover:bg-neon/10 transition-all"
+          className="inline-flex items-center gap-2 rounded border border-neon/20 bg-neon/5 px-3 py-2 text-sm text-neon/80 hover:text-neon hover:border-neon/40 hover:bg-neon/10 transition-all"
         >
-          <prompt.icon className="size-3 shrink-0" />
+          <prompt.icon className="size-3.5 shrink-0" />
           {prompt.text}
         </button>
       ))}

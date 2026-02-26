@@ -47,11 +47,11 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <a
             href="#top"
-            className="font-[family-name:var(--font-pixel-heading)] text-[10px] text-neon text-glow-cyan tracking-wider hover:text-white transition-colors"
+            className="font-[family-name:var(--font-pixel-heading)] text-xs text-neon text-glow-cyan tracking-wider hover:text-white transition-colors"
           >
             PATRICK RAY
           </a>
-          <span className="text-[10px] text-muted-foreground hidden sm:inline">
+          <span className="text-xs text-muted-foreground hidden sm:inline">
             {time}
           </span>
         </div>
@@ -60,7 +60,7 @@ export function SiteHeader() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="px-2.5 py-1 text-[10px] uppercase tracking-widest text-muted-foreground hover:text-neon hover:bg-neon/5 rounded transition-colors"
+                className="px-2.5 py-1 text-xs uppercase tracking-widest text-muted-foreground hover:text-neon hover:bg-neon/5 rounded transition-colors"
               >
                 {link.label}
               </a>

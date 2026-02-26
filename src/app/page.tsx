@@ -33,14 +33,14 @@ function TickerFooter() {
     <footer className="border-t border-neon/10 overflow-hidden bg-card/30">
       <div className="py-2.5">
         <div className="animate-ticker whitespace-nowrap">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-neon/30">
+          <span className="text-xs uppercase tracking-[0.3em] text-neon/30">
             {tickerContent}
             {tickerContent}
           </span>
         </div>
       </div>
       <div className="border-t border-neon/5 py-3 text-center">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground/50">
           Built by Patrick Ray // Powered by Claude // {new Date().getFullYear()}
         </p>
       </div>

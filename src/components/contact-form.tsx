@@ -52,11 +52,11 @@ export function ContactForm() {
     return (
       <section id="contact" className="px-6 py-16">
         <div className="mx-auto max-w-lg text-center">
-          <CheckCircle className="mx-auto size-6 text-neon-green" />
-          <h2 className="mt-3 font-[family-name:var(--font-pixel-heading)] text-xs text-neon-green uppercase tracking-wider">
+          <CheckCircle className="mx-auto size-8 text-neon-green" />
+          <h2 className="mt-3 font-[family-name:var(--font-pixel-heading)] text-sm text-neon-green uppercase tracking-wider">
             Message Sent
           </h2>
-          <p className="mt-2 text-xs text-muted-foreground">
+          <p className="mt-2 text-sm text-muted-foreground">
             Patrick will get back to you soon.
           </p>
         </div>
@@ -65,15 +65,15 @@ export function ContactForm() {
   }
 
   const inputClasses =
-    "w-full rounded border border-neon/15 bg-transparent px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 transition-colors"
+    "w-full rounded border border-neon/15 bg-transparent px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 transition-colors"
 
   return (
     <section id="contact" className="px-6 py-16">
       <div className="mx-auto max-w-lg">
-        <h2 className="font-[family-name:var(--font-pixel-heading)] text-sm text-center text-neon text-glow-cyan uppercase tracking-wider">
+        <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-center text-neon text-glow-cyan uppercase tracking-wider">
           Contact
         </h2>
-        <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
+        <p className="mt-3 text-center text-sm text-muted-foreground tracking-wide">
           Interested in working together? Send a transmission.
         </p>
 
@@ -82,15 +82,15 @@ export function ContactForm() {
           className="mt-6 rounded-lg border border-neon/15 bg-card/30 p-5 space-y-4 glow-cyan"
         >
           <div className="flex items-center gap-2 mb-2">
-            <Radio className="size-3 text-neon" />
-            <span className="text-[10px] uppercase tracking-widest text-neon">
+            <Radio className="size-4 text-neon" />
+            <span className="text-xs uppercase tracking-widest text-neon">
               New Transmission
             </span>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="name" className="text-[10px] uppercase tracking-widest text-muted-foreground">
+              <label htmlFor="name" className="text-xs uppercase tracking-widest text-muted-foreground">
                 Name
               </label>
               <input
@@ -98,11 +98,11 @@ export function ContactForm() {
                 name="name"
                 required
                 placeholder="Your name"
-                className={`mt-1 ${inputClasses}`}
+                className={`mt-1.5 ${inputClasses}`}
               />
             </div>
             <div>
-              <label htmlFor="email" className="text-[10px] uppercase tracking-widest text-muted-foreground">
+              <label htmlFor="email" className="text-xs uppercase tracking-widest text-muted-foreground">
                 Email
               </label>
               <input
@@ -111,13 +111,13 @@ export function ContactForm() {
                 type="email"
                 required
                 placeholder="you@company.com"
-                className={`mt-1 ${inputClasses}`}
+                className={`mt-1.5 ${inputClasses}`}
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="message" className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted-foreground">
               Message
             </label>
             <textarea
@@ -126,19 +126,19 @@ export function ContactForm() {
               required
               rows={4}
               placeholder="What's on your mind?"
-              className={`mt-1 min-h-[80px] resize-none ${inputClasses}`}
+              className={`mt-1.5 min-h-[80px] resize-none ${inputClasses}`}
             />
           </div>
 
           <div>
-            <label htmlFor="source" className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            <label htmlFor="source" className="text-xs uppercase tracking-widest text-muted-foreground">
               How did you find me? <span className="text-muted-foreground/50">(optional)</span>
             </label>
             <input
               id="source"
               name="source"
               placeholder="LinkedIn, referral, search..."
-              className={`mt-1 ${inputClasses}`}
+              className={`mt-1.5 ${inputClasses}`}
             />
           </div>
 
@@ -148,8 +148,8 @@ export function ContactForm() {
           </div>
 
           {status === "error" && (
-            <div className="flex items-center gap-2 text-xs text-neon-pink">
-              <AlertCircle className="size-3.5" />
+            <div className="flex items-center gap-2 text-sm text-neon-pink">
+              <AlertCircle className="size-4" />
               {error}
             </div>
           )}
@@ -157,13 +157,13 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full flex items-center justify-center gap-2 rounded border border-neon/30 bg-neon/10 py-2.5 text-[11px] uppercase tracking-widest text-neon hover:bg-neon/20 hover:border-neon/50 transition-colors disabled:opacity-50 disabled:pointer-events-none"
+            className="w-full flex items-center justify-center gap-2 rounded border border-neon/30 bg-neon/10 py-2.5 text-sm uppercase tracking-widest text-neon hover:bg-neon/20 hover:border-neon/50 transition-colors disabled:opacity-50 disabled:pointer-events-none"
           >
             {status === "loading" ? (
               "Transmitting..."
             ) : (
               <>
-                <Send className="size-3.5" />
+                <Send className="size-4" />
                 Send Transmission
               </>
             )}

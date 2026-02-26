@@ -80,15 +80,15 @@ export function ResumeSection() {
     <section id="resume" className="px-6 py-16">
       <div className="mx-auto max-w-3xl">
         <div className="flex items-center justify-between">
-          <h2 className="font-[family-name:var(--font-pixel-heading)] text-sm text-neon text-glow-cyan uppercase tracking-wider">
+          <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-neon text-glow-cyan uppercase tracking-wider">
             Resume
           </h2>
           <a
             href="/resume.pdf"
             download
-            className="inline-flex items-center gap-2 rounded border border-neon/20 bg-neon/5 px-3 py-1.5 text-[10px] uppercase tracking-widest text-neon hover:bg-neon/10 hover:border-neon/40 transition-colors"
+            className="inline-flex items-center gap-2 rounded border border-neon/20 bg-neon/5 px-3 py-1.5 text-xs uppercase tracking-widest text-neon hover:bg-neon/10 hover:border-neon/40 transition-colors"
           >
-            <Download className="size-3" />
+            <Download className="size-3.5" />
             Download PDF
           </a>
         </div>
@@ -96,21 +96,21 @@ export function ResumeSection() {
         {/* Experience */}
         <div className="mt-8">
           <div className="flex items-center gap-2 mb-4">
-            <Briefcase className="size-3.5 text-neon/50" />
-            <span className="text-[10px] uppercase tracking-[0.25em] text-neon/50">Experience</span>
+            <Briefcase className="size-4 text-neon/50" />
+            <span className="text-xs uppercase tracking-[0.25em] text-neon/50">Experience</span>
           </div>
           <div className="space-y-5 border-l border-neon/10 pl-4">
             {experience.map((exp) => (
               <div key={exp.org}>
-                <h3 className="text-sm font-semibold text-foreground">{exp.org}</h3>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{exp.location}</p>
+                <h3 className="text-base font-semibold text-foreground">{exp.org}</h3>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">{exp.location}</p>
                 {exp.roles.map((role) => (
                   <div key={role.title} className="mt-2">
                     <div className="flex flex-wrap items-baseline gap-x-2">
-                      <span className="text-xs font-medium text-neon/80">{role.title}</span>
-                      <span className="text-[10px] text-muted-foreground">{role.period}</span>
+                      <span className="text-sm font-medium text-neon/80">{role.title}</span>
+                      <span className="text-xs text-muted-foreground">{role.period}</span>
                     </div>
-                    <ul className="mt-1 space-y-0.5 text-xs text-muted-foreground list-none">
+                    <ul className="mt-1 space-y-0.5 text-sm text-muted-foreground list-none">
                       {role.bullets.map((b, i) => (
                         <li key={i} className="flex gap-2">
                           <span className="text-neon/30 shrink-0">&gt;</span>
@@ -128,16 +128,16 @@ export function ResumeSection() {
         {/* Education */}
         <div className="mt-10">
           <div className="flex items-center gap-2 mb-4">
-            <GraduationCap className="size-3.5 text-neon/50" />
-            <span className="text-[10px] uppercase tracking-[0.25em] text-neon/50">Education</span>
+            <GraduationCap className="size-4 text-neon/50" />
+            <span className="text-xs uppercase tracking-[0.25em] text-neon/50">Education</span>
           </div>
           <div className="space-y-3 border-l border-neon/10 pl-4">
             {education.map((ed) => (
               <div key={ed.school}>
-                <p className="text-xs font-medium text-foreground">{ed.school}</p>
-                <p className="text-[10px] text-neon/60">{ed.degree}</p>
+                <p className="text-sm font-medium text-foreground">{ed.school}</p>
+                <p className="text-xs text-neon/60">{ed.degree}</p>
                 {ed.detail && (
-                  <p className="text-[10px] text-muted-foreground mt-0.5">{ed.detail}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{ed.detail}</p>
                 )}
               </div>
             ))}

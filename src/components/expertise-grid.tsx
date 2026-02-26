@@ -46,16 +46,16 @@ function SkillPill({ skill, color }: { skill: Skill; color: SkillColor }) {
     <button
       onClick={() => setExpanded(!expanded)}
       className={cn(
-        "w-full text-left rounded border px-3 py-2 text-[11px] uppercase tracking-wider transition-all",
+        "w-full text-left rounded border px-3 py-2.5 text-sm uppercase tracking-wider transition-all",
         styles[color]
       )}
     >
       <span className="flex items-center gap-1.5">
-        <ChevronRight className={cn("size-3 shrink-0 transition-transform", expanded && "rotate-90")} />
+        <ChevronRight className={cn("size-3.5 shrink-0 transition-transform", expanded && "rotate-90")} />
         {skill.name}
       </span>
       {expanded && (
-        <p className="mt-1.5 pl-4.5 text-[10px] normal-case tracking-normal opacity-70 leading-relaxed">
+        <p className="mt-1.5 pl-5 text-xs normal-case tracking-normal opacity-70 leading-relaxed">
           {skill.detail}
         </p>
       )}
@@ -67,10 +67,10 @@ export function ExpertiseGrid() {
   return (
     <section id="expertise" className="px-6 py-16">
       <div className="mx-auto max-w-4xl">
-        <h2 className="font-[family-name:var(--font-pixel-heading)] text-sm text-center text-neon text-glow-cyan uppercase tracking-wider">
+        <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-center text-neon text-glow-cyan uppercase tracking-wider">
           Skills Assessment
         </h2>
-        <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
+        <p className="mt-3 text-center text-sm text-muted-foreground tracking-wide">
           Click any skill for detail. This is how Patrick actually sees his own capabilities.
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
@@ -81,10 +81,10 @@ export function ExpertiseGrid() {
                 <span className="absolute inline-flex size-full rounded-full bg-neon-green opacity-40"></span>
                 <span className="relative inline-flex size-2 rounded-full bg-neon-green"></span>
               </span>
-              <h3 className="text-[10px] font-bold text-neon-green uppercase tracking-[0.25em]">
+              <h3 className="text-xs font-bold text-neon-green uppercase tracking-[0.25em]">
                 Strong
               </h3>
-              <span className="ml-auto text-[10px] text-neon-green/50">{strong.length}</span>
+              <span className="ml-auto text-xs text-neon-green/50">{strong.length}</span>
             </div>
             <div className="flex flex-col gap-1.5">
               {strong.map((s) => (
@@ -100,10 +100,10 @@ export function ExpertiseGrid() {
                 <span className="absolute inline-flex size-full rounded-full bg-neon-amber opacity-40"></span>
                 <span className="relative inline-flex size-2 rounded-full bg-neon-amber"></span>
               </span>
-              <h3 className="text-[10px] font-bold text-neon-amber uppercase tracking-[0.25em]">
+              <h3 className="text-xs font-bold text-neon-amber uppercase tracking-[0.25em]">
                 Growing
               </h3>
-              <span className="ml-auto text-[10px] text-neon-amber/50">{growing.length}</span>
+              <span className="ml-auto text-xs text-neon-amber/50">{growing.length}</span>
             </div>
             <div className="flex flex-col gap-1.5">
               {growing.map((s) => (
@@ -118,10 +118,10 @@ export function ExpertiseGrid() {
               <span className="relative flex size-2">
                 <span className="relative inline-flex size-2 rounded-full bg-muted-foreground/50"></span>
               </span>
-              <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.25em]">
+              <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-[0.25em]">
                 Gaps
               </h3>
-              <span className="ml-auto text-[10px] text-muted-foreground/50">{gaps.length}</span>
+              <span className="ml-auto text-xs text-muted-foreground/50">{gaps.length}</span>
             </div>
             <div className="flex flex-col gap-1.5">
               {gaps.map((s) => (
