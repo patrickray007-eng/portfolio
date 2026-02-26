@@ -11,7 +11,7 @@ interface Skill {
 
 const strong: Skill[] = [
   { name: "Program Design & Ops", detail: "Designed and ran multiple programs from scratch at Rice. Six Sigma, Lean, KPI frameworks, stakeholder management" },
-  { name: "Full-Stack Development", detail: "Next.js, React, TypeScript, Python. Built production automation tools, API integrations, database backends" },
+  { name: "Technical Building", detail: "Next.js, React, TypeScript, Python. Built production automation tools, API integrations, database backends, webhook systems" },
   { name: "Financial Modeling", detail: "DCF valuation, scenario planning, startup financial projections. Teaches this at Rice" },
   { name: "Startup Advising", detail: "Coached 100+ startups/year to $1M+ in funding. Y Combinator and TechStars acceptances" },
   { name: "Engineering", detail: "20 years across manufacturing, clean-tech, aviation. Hands-on technical work in resource-constrained environments" },
@@ -55,7 +55,7 @@ function SkillPill({ skill, color }: { skill: Skill; color: SkillColor }) {
         {skill.name}
       </span>
       {expanded && (
-        <p className="mt-1.5 pl-5 text-xs normal-case tracking-normal opacity-70 leading-relaxed">
+        <p className="mt-1.5 pl-5 text-sm normal-case tracking-normal opacity-70 leading-relaxed">
           {skill.detail}
         </p>
       )}
@@ -70,7 +70,7 @@ export function ExpertiseGrid() {
         <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-center text-neon text-glow-cyan uppercase tracking-wider">
           Skills Assessment
         </h2>
-        <p className="mt-3 text-center text-sm text-muted-foreground tracking-wide">
+        <p className="mt-3 text-center text-base text-muted-foreground tracking-wide">
           Click any skill for detail. This is how Patrick actually sees his own capabilities.
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">

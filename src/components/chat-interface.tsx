@@ -132,7 +132,7 @@ export function ChatInterface() {
         <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-center text-neon text-glow-cyan uppercase tracking-wider">
           Ask the AI
         </h2>
-        <p className="mt-3 text-center text-sm text-muted-foreground tracking-wide">
+        <p className="mt-3 text-center text-base text-muted-foreground tracking-wide">
           This AI knows Patrick's background and will give you an honest assessment.
           Paste a job description, ask about gaps, or explore freely.
         </p>
@@ -183,7 +183,7 @@ export function ChatInterface() {
                 )}
                 <div
                   className={cn(
-                    "max-w-[85%] rounded-lg px-3 py-2 text-sm leading-relaxed",
+                    "max-w-[85%] rounded-lg px-3 py-2 text-base leading-relaxed",
                     msg.role === "user"
                       ? "bg-neon/10 border border-neon/20 text-foreground"
                       : "bg-secondary/50 border border-border text-foreground/90"
@@ -216,7 +216,7 @@ export function ChatInterface() {
                 placeholder="> Enter query..."
                 rows={1}
                 disabled={isStreaming}
-                className="flex-1 min-h-[40px] max-h-[120px] resize-none rounded border border-neon/15 bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 disabled:opacity-50"
+                className="flex-1 min-h-[40px] max-h-[120px] resize-none rounded border border-neon/15 bg-transparent px-3 py-2 text-base text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 disabled:opacity-50"
               />
               <button
                 type="submit"

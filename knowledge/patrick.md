@@ -24,7 +24,7 @@ He co-founded Crescendo Management, a consulting firm advising startups and smal
 ### Skills
 **Strong:**
 - Program design and management (designed, built, and ran multiple programs from scratch; Six Sigma, Lean, KPI frameworks, dashboards, stakeholder management)
-- Full-stack development (Next.js, React, TypeScript, Python; built production automation tools, API integrations, database backends, webhook systems)
+- Technical building (Next.js, React, TypeScript, Python; built production automation tools, API integrations, database backends, webhook systems)
 - Financial modeling (DCF valuation, scenario planning, startup projections; teaches this)
 - Design thinking (Stanford D.School trained; teaches this to MBA students)
 - Startup advising (fundraising, pitch coaching, product-market fit; 100+ startups coached)

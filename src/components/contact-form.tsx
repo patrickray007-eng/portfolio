@@ -73,7 +73,7 @@ export function ContactForm() {
         <h2 className="font-[family-name:var(--font-pixel-heading)] text-base text-center text-neon text-glow-cyan uppercase tracking-wider">
           Contact
         </h2>
-        <p className="mt-3 text-center text-sm text-muted-foreground tracking-wide">
+        <p className="mt-3 text-center text-base text-muted-foreground tracking-wide">
           Interested in working together? Send a transmission.
         </p>
 

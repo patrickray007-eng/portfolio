@@ -22,10 +22,10 @@ export function HeroSection() {
         </h1>
 
         <p className="mt-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-          Program Builder // Full-Stack Developer // Startup Advisor
+          Program Builder // Systems Builder // Startup Advisor
         </p>
 
-        <p className="mt-2 text-sm text-muted-foreground tracking-wide">
+        <p className="mt-2 text-base text-muted-foreground tracking-wide">
           Houston, TX // Rice University // Jones Graduate School of Business
         </p>
 
@@ -34,7 +34,7 @@ export function HeroSection() {
             <Terminal className="size-3.5 text-neon" />
             <span className="text-xs uppercase tracking-widest text-neon">System Message</span>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-base text-muted-foreground leading-relaxed">
             This site is powered by an AI that knows my background. Ask it anything,
             paste a job description, or explore the sections below. It will be honest
             about where I'm strong and where I'm not.

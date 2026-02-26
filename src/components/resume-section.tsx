@@ -123,7 +123,7 @@ export function ResumeSection() {
                       <span className="text-sm font-medium text-neon/80">{role.title}</span>
                       <span className="text-xs text-muted-foreground">{role.period}</span>
                     </div>
-                    <ul className="mt-1 space-y-0.5 text-sm text-muted-foreground list-none">
+                    <ul className="mt-1 space-y-0.5 text-base text-muted-foreground list-none">
                       {role.bullets.map((b, i) => (
                         <li key={i} className="flex gap-2">
                           <span className="text-neon/30 shrink-0">&gt;</span>
