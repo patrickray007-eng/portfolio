@@ -5,7 +5,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-mono-body);
+  --font-pixel: var(--font-pixel-heading);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -22,11 +23,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
+  --color-neon: var(--neon);
+  --color-neon-pink: var(--neon-pink);
+  --color-neon-amber: var(--neon-amber);
+  --color-neon-green: var(--neon-green);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -35,30 +35,29 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.5rem;
+  --background: #080c16;
+  --foreground: #e2e8f0;
+  --card: rgba(15, 23, 42, 0.8);
+  --card-foreground: #e2e8f0;
+  --popover: #0f172a;
+  --popover-foreground: #e2e8f0;
+  --primary: #22d3ee;
+  --primary-foreground: #080c16;
+  --secondary: rgba(30, 41, 59, 0.7);
+  --secondary-foreground: #94a3b8;
+  --muted: rgba(30, 41, 59, 0.5);
+  --muted-foreground: #64748b;
+  --accent: rgba(34, 211, 238, 0.1);
+  --accent-foreground: #22d3ee;
+  --destructive: #f43f5e;
+  --border: rgba(34, 211, 238, 0.15);
+  --input: rgba(34, 211, 238, 0.15);
+  --ring: #22d3ee;
+  --neon: #22d3ee;
+  --neon-pink: #f43f5e;
+  --neon-amber: #fbbf24;
+  --neon-green: #34d399;
 }
 
 @layer base {
@@ -71,4 +70,74 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Glow utilities */
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.15), inset 0 0 15px rgba(34, 211, 238, 0.05);
+}
+.glow-cyan-strong {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.25), 0 0 60px rgba(34, 211, 238, 0.1);
+}
+.glow-pink {
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.15), inset 0 0 15px rgba(244, 63, 94, 0.05);
+}
+.glow-amber {
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.15), inset 0 0 15px rgba(251, 191, 36, 0.05);
+}
+.glow-green {
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.15), inset 0 0 15px rgba(52, 211, 153, 0.05);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.2);
+}
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(244, 63, 94, 0.5), 0 0 40px rgba(244, 63, 94, 0.2);
+}
+
+/* Scanline overlay for retro CRT effect */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+/* Pixel grid background pattern */
+.pixel-grid {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.5);
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 30s linear infinite;
 }

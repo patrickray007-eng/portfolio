@@ -1,6 +1,4 @@
-import { Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
+import { Download, Briefcase, GraduationCap } from "lucide-react"
 
 const experience = [
   {
@@ -82,50 +80,68 @@ export function ResumeSection() {
     <section id="resume" className="px-6 py-16">
       <div className="mx-auto max-w-3xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Resume</h2>
-          <Button variant="outline" size="sm" asChild>
-            <a href="/resume.pdf" download>
-              <Download className="size-4" />
-              Download PDF
-            </a>
-          </Button>
+          <h2 className="font-[family-name:var(--font-pixel-heading)] text-sm text-neon text-glow-cyan uppercase tracking-wider">
+            Resume
+          </h2>
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded border border-neon/20 bg-neon/5 px-3 py-1.5 text-[10px] uppercase tracking-widest text-neon hover:bg-neon/10 hover:border-neon/40 transition-colors"
+          >
+            <Download className="size-3" />
+            Download PDF
+          </a>
         </div>
 
-        <div className="mt-8 space-y-6">
-          {experience.map((exp) => (
-            <div key={exp.org}>
-              <h3 className="font-semibold">{exp.org}</h3>
-              <p className="text-xs text-muted-foreground">{exp.location}</p>
-              {exp.roles.map((role) => (
-                <div key={role.title} className="mt-2">
-                  <div className="flex flex-wrap items-baseline gap-x-2">
-                    <span className="text-sm font-medium">{role.title}</span>
-                    <span className="text-xs text-muted-foreground">{role.period}</span>
+        {/* Experience */}
+        <div className="mt-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Briefcase className="size-3.5 text-neon/50" />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-neon/50">Experience</span>
+          </div>
+          <div className="space-y-5 border-l border-neon/10 pl-4">
+            {experience.map((exp) => (
+              <div key={exp.org}>
+                <h3 className="text-sm font-semibold text-foreground">{exp.org}</h3>
+                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{exp.location}</p>
+                {exp.roles.map((role) => (
+                  <div key={role.title} className="mt-2">
+                    <div className="flex flex-wrap items-baseline gap-x-2">
+                      <span className="text-xs font-medium text-neon/80">{role.title}</span>
+                      <span className="text-[10px] text-muted-foreground">{role.period}</span>
+                    </div>
+                    <ul className="mt-1 space-y-0.5 text-xs text-muted-foreground list-none">
+                      {role.bullets.map((b, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-neon/30 shrink-0">&gt;</span>
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="mt-1 space-y-0.5 text-sm text-muted-foreground list-disc pl-4">
-                    {role.bullets.map((b, i) => (
-                      <li key={i}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <Separator className="my-8" />
-
-        <h3 className="font-semibold">Education</h3>
-        <div className="mt-3 space-y-3">
-          {education.map((ed) => (
-            <div key={ed.school}>
-              <p className="text-sm font-medium">{ed.school}</p>
-              <p className="text-xs text-muted-foreground">{ed.degree}</p>
-              {ed.detail && (
-                <p className="text-xs text-muted-foreground mt-0.5">{ed.detail}</p>
-              )}
-            </div>
-          ))}
+        {/* Education */}
+        <div className="mt-10">
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="size-3.5 text-neon/50" />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-neon/50">Education</span>
+          </div>
+          <div className="space-y-3 border-l border-neon/10 pl-4">
+            {education.map((ed) => (
+              <div key={ed.school}>
+                <p className="text-xs font-medium text-foreground">{ed.school}</p>
+                <p className="text-[10px] text-neon/60">{ed.degree}</p>
+                {ed.detail && (
+                  <p className="text-[10px] text-muted-foreground mt-0.5">{ed.detail}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

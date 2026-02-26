@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { MessageSquare, Search, User, Wrench, Users } from "lucide-react"
 
 const prompts = [
@@ -34,16 +33,14 @@ export function SamplePrompts({ onSelect }: SamplePromptsProps) {
   return (
     <div className="flex flex-wrap justify-center gap-2">
       {prompts.map((prompt) => (
-        <Button
+        <button
           key={prompt.text}
-          variant="outline"
-          size="sm"
-          className="h-auto py-2 px-3 text-xs text-left whitespace-normal"
           onClick={() => onSelect(prompt.text)}
+          className="inline-flex items-center gap-2 rounded border border-neon/20 bg-neon/5 px-3 py-2 text-[11px] text-neon/80 hover:text-neon hover:border-neon/40 hover:bg-neon/10 transition-all"
         >
-          <prompt.icon className="size-3.5 shrink-0" />
+          <prompt.icon className="size-3 shrink-0" />
           {prompt.text}
-        </Button>
+        </button>
       ))}
     </div>
   )

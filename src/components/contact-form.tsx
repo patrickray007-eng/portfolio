@@ -1,10 +1,7 @@
 "use client"
 
 import { useState, type FormEvent } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Send, CheckCircle, AlertCircle } from "lucide-react"
+import { Send, CheckCircle, AlertCircle, Radio } from "lucide-react"
 
 type Status = "idle" | "loading" | "success" | "error"
 
@@ -20,7 +17,6 @@ export function ContactForm() {
     const form = e.currentTarget
     const data = new FormData(form)
 
-    // Honeypot check client-side
     if (data.get("website")) {
       setStatus("success")
       return
@@ -41,7 +37,7 @@ export function ContactForm() {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}))
-        throw new Error(body.error || "Something went wrong. Try emailing directly.")
+        throw new Error(body.error || "Transmission failed. Try again.")
       }
 
       setStatus("success")
@@ -56,9 +52,11 @@ export function ContactForm() {
     return (
       <section id="contact" className="px-6 py-16">
         <div className="mx-auto max-w-lg text-center">
-          <CheckCircle className="mx-auto size-8 text-emerald-600" />
-          <h2 className="mt-3 text-xl font-bold">Message sent</h2>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <CheckCircle className="mx-auto size-6 text-neon-green" />
+          <h2 className="mt-3 font-[family-name:var(--font-pixel-heading)] text-xs text-neon-green uppercase tracking-wider">
+            Message Sent
+          </h2>
+          <p className="mt-2 text-xs text-muted-foreground">
             Patrick will get back to you soon.
           </p>
         </div>
@@ -66,66 +64,81 @@ export function ContactForm() {
     )
   }
 
+  const inputClasses =
+    "w-full rounded border border-neon/15 bg-transparent px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-neon/40 focus:ring-1 focus:ring-neon/20 transition-colors"
+
   return (
     <section id="contact" className="px-6 py-16">
       <div className="mx-auto max-w-lg">
-        <h2 className="text-2xl font-bold text-center">Get in Touch</h2>
-        <p className="mt-2 text-center text-sm text-muted-foreground">
-          Interested in working together? Drop a note.
+        <h2 className="font-[family-name:var(--font-pixel-heading)] text-sm text-center text-neon text-glow-cyan uppercase tracking-wider">
+          Contact
+        </h2>
+        <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
+          Interested in working together? Send a transmission.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-6 rounded-lg border border-neon/15 bg-card/30 p-5 space-y-4 glow-cyan"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <Radio className="size-3 text-neon" />
+            <span className="text-[10px] uppercase tracking-widest text-neon">
+              New Transmission
+            </span>
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="name" className="text-sm font-medium">
+              <label htmlFor="name" className="text-[10px] uppercase tracking-widest text-muted-foreground">
                 Name
               </label>
-              <Input
+              <input
                 id="name"
                 name="name"
                 required
                 placeholder="Your name"
-                className="mt-1"
+                className={`mt-1 ${inputClasses}`}
               />
             </div>
             <div>
-              <label htmlFor="email" className="text-sm font-medium">
+              <label htmlFor="email" className="text-[10px] uppercase tracking-widest text-muted-foreground">
                 Email
               </label>
-              <Input
+              <input
                 id="email"
                 name="email"
                 type="email"
                 required
                 placeholder="you@company.com"
-                className="mt-1"
+                className={`mt-1 ${inputClasses}`}
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="message" className="text-sm font-medium">
+            <label htmlFor="message" className="text-[10px] uppercase tracking-widest text-muted-foreground">
               Message
             </label>
-            <Textarea
+            <textarea
               id="message"
               name="message"
               required
               rows={4}
               placeholder="What's on your mind?"
-              className="mt-1"
+              className={`mt-1 min-h-[80px] resize-none ${inputClasses}`}
             />
           </div>
 
           <div>
-            <label htmlFor="source" className="text-sm font-medium">
-              How did you find me? <span className="text-muted-foreground font-normal">(optional)</span>
+            <label htmlFor="source" className="text-[10px] uppercase tracking-widest text-muted-foreground">
+              How did you find me? <span className="text-muted-foreground/50">(optional)</span>
             </label>
-            <Input
+            <input
               id="source"
               name="source"
               placeholder="LinkedIn, referral, search..."
-              className="mt-1"
+              className={`mt-1 ${inputClasses}`}
             />
           </div>
 
@@ -135,22 +148,26 @@ export function ContactForm() {
           </div>
 
           {status === "error" && (
-            <div className="flex items-center gap-2 text-sm text-destructive">
-              <AlertCircle className="size-4" />
+            <div className="flex items-center gap-2 text-xs text-neon-pink">
+              <AlertCircle className="size-3.5" />
               {error}
             </div>
           )}
 
-          <Button type="submit" className="w-full" disabled={status === "loading"}>
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="w-full flex items-center justify-center gap-2 rounded border border-neon/30 bg-neon/10 py-2.5 text-[11px] uppercase tracking-widest text-neon hover:bg-neon/20 hover:border-neon/50 transition-colors disabled:opacity-50 disabled:pointer-events-none"
+          >
             {status === "loading" ? (
-              "Sending..."
+              "Transmitting..."
             ) : (
               <>
-                <Send className="size-4" />
-                Send Message
+                <Send className="size-3.5" />
+                Send Transmission
               </>
             )}
-          </Button>
+          </button>
         </form>
       </div>
     </section>
