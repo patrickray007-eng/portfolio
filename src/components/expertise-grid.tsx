@@ -10,12 +10,12 @@ interface Skill {
 }
 
 const strong: Skill[] = [
-  { name: "Entrepreneurship Education", detail: "4+ years coaching 100+ startups/year at Rice, teaching MBA and undergrad courses" },
-  { name: "Full-Stack Development", detail: "Next.js, React, TypeScript, Python. Built production tools and automations" },
+  { name: "Program Design & Ops", detail: "Designed and ran multiple programs from scratch at Rice. Six Sigma, Lean, KPI frameworks, stakeholder management" },
+  { name: "Full-Stack Development", detail: "Next.js, React, TypeScript, Python. Built production automation tools, API integrations, database backends" },
   { name: "Financial Modeling", detail: "DCF valuation, scenario planning, startup financial projections. Teaches this at Rice" },
-  { name: "Design Thinking", detail: "Stanford D.School trained. Teaches design thinking to MBA students at Rice" },
-  { name: "Program Design", detail: "Redesigned Rice innovation programs, tripled engagement. Six Sigma, Lean methodology" },
-  { name: "Startup Advising", detail: "Coached startups to $1M+ in funding, Y Combinator and TechStars acceptances" },
+  { name: "Startup Advising", detail: "Coached 100+ startups/year to $1M+ in funding. Y Combinator and TechStars acceptances" },
+  { name: "Engineering", detail: "20 years across manufacturing, clean-tech, aviation. Hands-on technical work in resource-constrained environments" },
+  { name: "Design Thinking", detail: "Stanford D.School trained. Applies to program design and teaches to MBA students at Rice" },
 ]
 
 const growing: Skill[] = [

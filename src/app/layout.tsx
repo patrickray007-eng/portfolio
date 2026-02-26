@@ -14,11 +14,11 @@ const monoFont = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "PATRICK RAY // BUILDER, EDUCATOR, ADVISOR",
+  title: "PATRICK RAY // BUILDER, ADVISOR, ENGINEER",
   description:
     "AI-powered portfolio for Patrick Ray. Ask the AI anything about his background, skills, and fit for your role.",
   openGraph: {
-    title: "PATRICK RAY // BUILDER, EDUCATOR, ADVISOR",
+    title: "PATRICK RAY // BUILDER, ADVISOR, ENGINEER",
     description:
       "AI-powered portfolio. Ask the AI anything about Patrick's background and fit for your role.",
     type: "website",

@@ -22,7 +22,7 @@ export function HeroSection() {
         </h1>
 
         <p className="mt-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-          Entrepreneurship Educator // Full-Stack Builder // Startup Advisor
+          Program Builder // Full-Stack Developer // Startup Advisor
         </p>
 
         <p className="mt-2 text-sm text-muted-foreground tracking-wide">

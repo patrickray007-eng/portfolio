@@ -6,7 +6,7 @@ const experience = [
     location: "Houston, TX",
     roles: [
       {
-        title: "Clinical Faculty, Entrepreneurship (Part-Time)",
+        title: "Clinical Faculty, Entrepreneurship",
         period: "2025 \u2013 Present",
         bullets: [
           "Teaches MBA students design thinking and undergraduates financial modeling, valuation, and scenario planning.",
@@ -17,10 +17,11 @@ const experience = [
         title: "Innovation Program Manager, Liu Idea Lab",
         period: "2022 \u2013 2025",
         bullets: [
-          "Coached 100+ startups/year through ideation, financial modeling, fundraising, and scaling.",
-          "Redesigned core innovation program using Lean Methodology, leading to 300% engagement increase.",
-          "Rebuilt pre-accelerator programs using Root Cause Analysis and Six Sigma, increasing workshops by 80%.",
-          "Startups coached secured $1M+ in funding, with several accepted to TechStars and Y Combinator.",
+          "Designed and ran multiple concurrent innovation programs, managing external stakeholders and cross-functional teams.",
+          "Built web app automation for grant programs using APIs, webhooks, and database backends, reducing turnaround from application to funding.",
+          "Created KPI dashboards and budget forecasts to manage four concurrent programs.",
+          "Redesigned core program using Lean Methodology (300% engagement increase). Rebuilt pre-accelerator using Six Sigma (80% more workshops).",
+          "Coached 100+ startups/year. Startups secured $1M+ in funding, with several accepted to TechStars and Y Combinator.",
         ],
       },
     ],
@@ -40,20 +41,6 @@ const experience = [
     ],
   },
   {
-    org: "PBR Music",
-    location: "Houston, TX",
-    roles: [
-      {
-        title: "Founder & Bandleader",
-        period: "2018 \u2013 Present",
-        bullets: [
-          "Built and managed all business operations: booking, finances, rights management, payroll, marketing.",
-          "Grew revenue tenfold over five years. 85+ shows per year. Three full-length albums.",
-        ],
-      },
-    ],
-  },
-  {
     org: "Pinnacle Engines",
     location: "San Carlos, CA",
     roles: [
@@ -67,11 +54,37 @@ const experience = [
       },
     ],
   },
+  {
+    org: "Trace Engines",
+    location: "Midland, TX",
+    roles: [
+      {
+        title: "Mechanical Engineer",
+        period: "2013 \u2013 2014",
+        bullets: [
+          "Aviation engine manufacturer. Root cause analysis, failure testing, and design improvements.",
+          "Presented recommendations to CEO, saving $500K+/year in warranty claims.",
+        ],
+      },
+    ],
+  },
+  {
+    org: "Manufacturing & Engineering",
+    location: "West Texas",
+    roles: [
+      {
+        title: "Mechanical Engineer",
+        period: "2006 \u2013 2013",
+        bullets: [
+          "Several years across small, family-run manufacturing businesses. Hands-on engineering, process improvement, and operations.",
+        ],
+      },
+    ],
+  },
 ]
 
 const education = [
   { school: "Rice University, Jones Graduate School of Business", degree: "MBA, 2020", detail: "Operations, Finance, Entrepreneurship. Global Field Experience in Uganda and Colombia." },
-  { school: "Stanford University", degree: "Design Thinking, 2014", detail: "" },
   { school: "University of Texas at Permian Basin", degree: "B.S. Mechanical Engineering, 2012", detail: "Undergraduate research in carbon capture with Los Alamos National Laboratory." },
 ]
 
